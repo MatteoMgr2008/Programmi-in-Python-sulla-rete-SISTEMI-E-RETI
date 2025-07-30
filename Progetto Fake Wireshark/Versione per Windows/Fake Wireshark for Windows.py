@@ -117,7 +117,9 @@ def info_interfacce_rete():
                 print(f"- Velocità del Wi-Fi (in Mbps): {velocità_WiFi} Mbps")
             print(f"- Tipo di infrastruttura di rete: {info_WiFi['Tipo di infrastruttura di rete']}")
     
-    print(Fore.GREEN+"\nScansione delle interfacce di rete completata con successo!"+Style.RESET_ALL)
+    print()
+    print(Fore.GREEN+"Scansione delle interfacce di rete completata con successo!"+Style.RESET_ALL)
+    print()
 
 spazio_necessario_extra = False
 
@@ -207,7 +209,7 @@ def cattura_pacchetti_rete():
         interruzione_analisi_pacchetti_rete()
     
 def interruzione_analisi_pacchetti_rete():
-    print("\nLa cattura dei pacchetti di rete è stata interrotta!")
+    print(Fore.RED+"\nLa cattura dei pacchetti di rete è stata interrotta!"+Style.RESET_ALL)
     print()
 
 def introduzione_programma():
@@ -230,7 +232,9 @@ def introduzione_programma():
             info_interfacce_rete()
             break
         elif inizio_scansione_interfacce_rete=="N":
-            print(Fore.RED+"Non verrà effetuata l'analisi delle interfacce di rete!"+Style.RESET_ALL)
+            print()
+            print(Fore.RED+"Non verrà effettuata l'analisi delle interfacce di rete!"+Style.RESET_ALL)
+            print()
             break
         else:
             print("Risposta non riconosciuta. Verrà quindi riformulata la domanda, è possibile rispondere solo con S/N")
@@ -243,11 +247,14 @@ def introduzione_programma():
             print()
             cattura_pacchetti_rete()
             interruzione_analisi_pacchetti_rete()
+            time.sleep(1)
             esci_o_ricomincia()
         elif inizio_scansione_pacchetti_rete=="N":
-            print("Il programma terminerà a momenti...")
-            time.sleep(2)
-            exit()
+            print()
+            print(Fore.RED+"Non verrà avviata la cattura di pacchetti di rete!"+Style.RESET_ALL)
+            print()
+            time.sleep(1)
+            esci_o_ricomincia()
         else:
             print("Risposta non riconosciuta. Verrà quindi riformulata la domanda, è possibile rispondere solo con S/N")
             
